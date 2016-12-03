@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LurenTech.BusinessAction
 {
-    public abstract class BaseAction<IRepository>
+    public abstract class BaseAction<IRepository, Request, Response>
     {
         private IRepository _repository;
 
@@ -21,6 +21,13 @@ namespace LurenTech.BusinessAction
             {
                 return _repository;
             }
+        }
+
+        public abstract Response Execute(Request request);
+
+        public Task<Response> ExecuteAsync(Request request)
+        {
+            return new Task<Response>(() => Execute(request));
         }
     }
 }
