@@ -27,7 +27,9 @@ namespace LurenTech.BusinessAction
 
         public Task<Response> ExecuteAsync(Request request)
         {
-            return new Task<Response>(() => Execute(request));
+            var task = new Task<Response>(() => Execute(request));
+            task.Start();
+            return task;
         }
     }
 }
