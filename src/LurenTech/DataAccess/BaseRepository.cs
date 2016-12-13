@@ -9,6 +9,8 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Data;
 using LurenTech.Utilities.Logging;
+using Microsoft.SqlServer.Server;
+using LurenTech.Utilities.Extensions;
 
 namespace LurenTech.DataAccess
 {
@@ -70,7 +72,7 @@ namespace LurenTech.DataAccess
         {
             AddParam(command, ParameterDirection.Input, dbType, parameterName, value, 0);
         }
-
+        
         public static void AddOutParam(DbCommand command, DbType dbType, string parameterName, int size)
         {
             AddParam(command, ParameterDirection.Output, dbType, parameterName, null, size);
@@ -79,7 +81,7 @@ namespace LurenTech.DataAccess
         private static void AddParam(DbCommand command, ParameterDirection diriction, DbType dbType, string parameterName, object value, int size)
         {
             var param = command.CreateParameter();
-
+            
             param.DbType = dbType;
             param.Direction = diriction;
             param.ParameterName = string.Format("@{0}", parameterName);
@@ -103,7 +105,7 @@ namespace LurenTech.DataAccess
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 DbCommand command = factory.GetCommand(connection, model, newId);
-
+                
                 try
                 {
                     connection.Open();
@@ -111,7 +113,7 @@ namespace LurenTech.DataAccess
                 }
                 catch (Exception e)
                 {
-                    if(_logger != null)
+                    if (_logger != null)
                     {
                         _logger.WriteLog(e.ToString());
                     }
