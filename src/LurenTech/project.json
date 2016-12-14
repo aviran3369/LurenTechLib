@@ -8,6 +8,7 @@
     "NETStandard.Library": "1.6.0",
     "System.Data.Common": "4.1.0",
     "System.Data.SqlClient": "4.1.0",
+    "System.Diagnostics.StackTrace": "4.0.1",
     "System.Reflection.TypeExtensions": "4.1.0"
   },
 
