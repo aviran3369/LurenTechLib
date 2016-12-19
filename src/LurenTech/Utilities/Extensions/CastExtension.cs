@@ -26,6 +26,7 @@ namespace LurenTech.Utilities.Extensions
             foreach (var memberInfo in members)
             {
                 propertyInfo = typeof(T).GetProperty(memberInfo.Name);
+                
                 try
                 {
                     value = obj.GetType().GetProperty(memberInfo.Name).GetValue(obj, null);
