@@ -5,15 +5,6 @@ using System.Threading.Tasks;
 
 namespace LurenTech.Utilities.Logging
 {
-    public enum LogType : int
-    {
-        Exception = 1,
-        Error,
-        Warning,
-        Info,
-        Debug
-    }
-
     /// <summary>
     /// Represent a record of log message
     /// </summary>
@@ -28,11 +19,6 @@ namespace LurenTech.Utilities.Logging
         /// Reference to another log if writing a chain log 
         /// </summary>
         public Guid? ReferenceTo { get; private set; }
-
-        /// <summary>
-        /// Type of the Log
-        /// </summary>
-        public LogType LogType { get; set; }
 
         /// <summary>
         /// Log message
@@ -75,7 +61,6 @@ namespace LurenTech.Utilities.Logging
         public string CreatedBy { get; private set; }
         
         public LogEntry(
-            LogType logType,
             string message,
             string title = default(string),
             string @namespace = default(string),
@@ -85,9 +70,7 @@ namespace LurenTech.Utilities.Logging
             string createdBy = default(string),
             Guid? referenceTo = null)
         {
-            this.LogType = logType;
             this.Key = Guid.NewGuid();
-            this.Message = message;
             this.CreatedOn = DateTime.Now;
             this.Title = title;
             this.Namespace = @namespace;
