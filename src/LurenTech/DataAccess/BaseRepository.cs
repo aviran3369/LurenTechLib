@@ -111,11 +111,6 @@ namespace LurenTech.DataAccess
                 }
                 catch (Exception e)
                 {
-                    if(_logger != null)
-                    {
-                        _logger.WriteLog(e.ToString());
-                    }
-
                     throw e;
                 }
                 finally
@@ -154,7 +149,6 @@ namespace LurenTech.DataAccess
                 }
                 catch (Exception e)
                 {
-                    _logger.WriteLog(e.ToString());
                     throw e;
                 }
                 finally
@@ -179,7 +173,6 @@ namespace LurenTech.DataAccess
                 }
                 catch (Exception e)
                 {
-                    _logger.WriteLog(e.ToString());
                     throw e;
                 }
                 finally
@@ -202,7 +195,6 @@ namespace LurenTech.DataAccess
                 }
                 catch (Exception e)
                 {
-                    _logger.WriteLog(e.ToString());
                     throw e;
                 }
                 finally
@@ -242,7 +234,6 @@ namespace LurenTech.DataAccess
                 }
                 catch (Exception e)
                 {
-                    _logger.WriteLog(e.ToString());
                     throw e;
                 }
                 finally
