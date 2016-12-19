@@ -16,8 +16,7 @@ namespace LurenTech.Utilities.Logging
             }
         }
 
-        public Guid WriteLog(LogType logType,
-            string message,
+        public Guid WriteLog(string message,
             string title = default(string),
             string @namespace = default(string),
             string className = default(string),
@@ -25,7 +24,7 @@ namespace LurenTech.Utilities.Logging
             string path = default(string),
             string createdBy = default(string))
         {
-            LogEntry entry = new LogEntry(logType, message, title, @namespace, className, method, path, createdBy, null);
+            LogEntry entry = new LogEntry(message, title, @namespace, className, method, path, createdBy, null);
 
             WriteLogEntry(entry);
 
