@@ -95,6 +95,7 @@ namespace LurenTech.Utilities.Logging
             this.Path = path;
             this.CreatedBy = createdBy;
             this.ReferenceTo = referenceTo;
+            this.Message = message;
         }
     }
 }

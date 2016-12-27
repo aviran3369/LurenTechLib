@@ -2,6 +2,7 @@
   "version": "1.0.0-*",
 
   "dependencies": {
+    "Microsoft.AspNetCore.Mvc.Razor": "1.0.0",
     "Microsoft.Extensions.Caching.Abstractions": "1.1.0-alpha1-22066",
     "Microsoft.Extensions.Configuration.Abstractions": "1.1.0-alpha1-22066",
     "Microsoft.Extensions.DependencyModel": "1.0.1-beta-003206",
