@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace LurenTech.DataAccess
 {
-    public interface IDeleteFactory
+    public interface IDeleteFactory<TModel>
     {
-        DbCommand GetCommand(SqlConnection connection, Guid entityId);
+        DbCommand GetCommand(SqlConnection connection, TModel model);
     }
 }
