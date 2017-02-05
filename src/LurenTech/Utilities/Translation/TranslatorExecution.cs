@@ -34,7 +34,7 @@ namespace LurenTech.Utilities.Translation
             return (To)mi.Invoke(translator, new object[] { item });
         }
 
-        public static List<To> Translate<To>(IEnumerable<object> items)
+        public static List<To> TranslateToList<To>(IEnumerable<object> items)
         {
             List<To> objects = new List<To>();
 
