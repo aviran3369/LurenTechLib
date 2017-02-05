@@ -12,4 +12,8 @@ namespace LurenTech.DataAccess
     {
         DbCommand GetCommand(SqlConnection connection, TModel model);
     }
+    public interface IDeleteFactory
+    {
+        DbCommand GetCommand(SqlConnection connection, Guid model);
+    }
 }

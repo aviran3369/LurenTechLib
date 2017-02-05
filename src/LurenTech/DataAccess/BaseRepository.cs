@@ -182,6 +182,28 @@ namespace LurenTech.DataAccess
             }
         }
 
+        protected void Delete(IDeleteFactory<TModel> factory, TModel item)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                DbCommand command = factory.GetCommand(connection, item);
+
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
         protected void Delete(IDeleteFactory factory, Guid entityId)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
