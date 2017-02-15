@@ -35,12 +35,18 @@ namespace LurenTech.Utilities.Caching
 
         public static void Set<T>(string key, T value)
         {
-            MemoryCache.Set<T>(key, value);
-
-            if (key != CACHE_KEYS && !Keys.Any(x => x == key))
+            try
             {
-                Keys.Add(key);
-                Set<List<string>>(CACHE_KEYS, Keys);
+                MemoryCache.Set<T>(key, value);
+
+                if (key != CACHE_KEYS && !Keys.Any(x => x == key))
+                {
+                    Keys.Add(key);
+                    Set<List<string>>(CACHE_KEYS, Keys);
+                }
+            }
+            catch
+            {
             }
         }
 
@@ -53,7 +59,15 @@ namespace LurenTech.Utilities.Caching
         public static object Get(string key)
         {
             object value;
-            MemoryCache.TryGetValue(key, out value);
+            try
+            {
+                MemoryCache.TryGetValue(key, out value);
+            }
+            catch
+            {
+                value = null;
+            }
+
             return value;
         }
 
