@@ -36,6 +36,11 @@ namespace LurenTech.Configuration
             return _config.GetSection(key).Value;
         }
 
+        public IConfigurationSection GetSection(string key)
+        {
+            return _config.GetSection(key);
+        }
+
         public SmtpConnection GetSmtpConnectionDetails()
         {
             SmtpConnection smtp = new SmtpConnection();
